@@ -3,6 +3,8 @@ const {
   getAllProducts,
   createProduct,
   updateProduct,
+  deleteProduct,
+  getProductDetails,
 } = require("../controllers/productController");
 
 const router = express.Router();
@@ -12,8 +14,12 @@ const router = express.Router();
 router.route("/products").get(getAllProducts);
 // 2. Route to Create a New Product : POST
 router.route("/products/new").post(createProduct);
-// 3. Route to Update a Product
-router.route("/product/:id").put(updateProduct);
+// 3. Route to Update a Product (Update a Product / Delete / Get a single Product)
+router
+  .route("/product/:id")
+  .put(updateProduct)
+  .delete(deleteProduct)
+  .get(getProductDetails);
 
 // Exporting the Router Function
 module.exports = router;

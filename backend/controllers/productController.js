@@ -1,6 +1,6 @@
 const Product = require("../models/productModel");
 
-// Create Product -- ADMIN
+// Create Product - ADMIN
 exports.createProduct = async (req, res, next) => {
   const product = await Product.create(req.body);
 
@@ -17,6 +17,25 @@ exports.getAllProducts = async (req, res) => {
   res.status(200).json({
     success: true,
     products,
+  });
+};
+
+// Get product details - Single Product
+exports.getProductDetails = async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  // If Product is not found
+  if (!product) {
+    return res.status(500).json({
+      success: false,
+      message: "Product not found",
+    });
+  }
+
+  // If product is found
+  res.status(200).json({
+    success: true,
+    product,
   });
 };
 
@@ -42,5 +61,26 @@ exports.updateProduct = async (req, res) => {
   res.status(200).json({
     success: true,
     product,
+  });
+};
+
+// Delete Product
+exports.deleteProduct = async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  // Product not found
+  if (!product) {
+    return res.status(500).json({
+      success: false,
+      message: "Product not found",
+    });
+  }
+
+  // Remove Product from the Database
+  await product.remove();
+
+  res.status(200).json({
+    success: true,
+    message: "Product deleted successfully...",
   });
 };
