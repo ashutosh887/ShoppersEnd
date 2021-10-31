@@ -1,5 +1,8 @@
 const Product = require("../models/productModel");
 
+// ErrorHandler
+const ErrorHandler = require("../utils/errorHandler");
+
 // Create Product - ADMIN
 exports.createProduct = async (req, res, next) => {
   const product = await Product.create(req.body);
@@ -21,15 +24,12 @@ exports.getAllProducts = async (req, res) => {
 };
 
 // Get product details - Single Product
-exports.getProductDetails = async (req, res) => {
+exports.getProductDetails = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   // If Product is not found
   if (!product) {
-    return res.status(500).json({
-      success: false,
-      message: "Product not found",
-    });
+    return next(new ErrorHandler("Product not found", 404));
   }
 
   // If product is found
@@ -45,10 +45,7 @@ exports.updateProduct = async (req, res) => {
 
   // If product is not found
   if (!product) {
-    return res.status(500).json({
-      success: false,
-      message: "Product not found...",
-    });
+    return next(new ErrorHandler("Product not found", 404));
   }
 
   // If product is found
@@ -70,10 +67,7 @@ exports.deleteProduct = async (req, res, next) => {
 
   // Product not found
   if (!product) {
-    return res.status(500).json({
-      success: false,
-      message: "Product not found",
-    });
+    return next(new ErrorHandler("Product not found", 404));
   }
 
   // Remove Product from the Database
