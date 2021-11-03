@@ -1,8 +1,8 @@
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const User = require("../models/userModel");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
-const User = require("../models/userModel");
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -70,6 +70,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("User not Found", 404));
   }
 
+  const userEmail = user.email;
+
+  // Get Reset Password Token
   const resetToken = user.getResetPasswordToken();
 
   await user.save({ validateBeforeSave: false });
@@ -78,18 +81,22 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     "host"
   )}/api/v1/password/reset/${resetToken}`;
 
-  const message = `Your password reset Token is :- \n\nIf you had not requested for the same, kindly ignore`;
+  const message = `Your password reset Token is :- \n\n ${resetPasswordURL} \n\nIf you had not requested for the same, kindly ignore`;
 
   try {
+    console.log("I am in TRY BLOCK");
+
+    console.log("I am trying SEND EMAIL");
+
     await sendEmail({
-      email: user.email,
-      subject: "E-Commerce Password Recovery",
+      email: userEmail,
+      subject: "E-Commerce Website Password Recovery",
       message,
     });
 
     res.status(200).json({
       success: true,
-      message: `Email sent to ${user.email} successfully...`,
+      message: `Email sent to ${userEmail} successfully...`,
     });
   } catch (error) {
     user.resetPasswordToken = undefined;
