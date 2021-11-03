@@ -84,10 +84,6 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const message = `Your password reset Token is :- \n\n ${resetPasswordURL} \n\nIf you had not requested for the same, kindly ignore`;
 
   try {
-    console.log("I am in TRY BLOCK");
-
-    console.log("I am trying SEND EMAIL");
-
     await sendEmail({
       email: userEmail,
       subject: "E-Commerce Website Password Recovery",
