@@ -10,20 +10,22 @@ const orderSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+
     state: {
       type: String,
       required: true,
     },
+
     country: {
       type: String,
       required: true,
     },
     pinCode: {
-      type: String,
+      type: Number,
       required: true,
     },
     phoneNo: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
@@ -73,23 +75,23 @@ const orderSchema = new mongoose.Schema({
   },
   itemsPrice: {
     type: Number,
-    default: 0,
     required: true,
+    default: 0,
   },
   taxPrice: {
-    type: String,
-    default: 0,
+    type: Number,
     required: true,
+    default: 0,
   },
   shippingPrice: {
-    type: String,
-    default: 0,
+    type: Number,
     required: true,
+    default: 0,
   },
   totalPrice: {
     type: Number,
-    default: 0,
     required: true,
+    default: 0,
   },
   orderStatus: {
     type: String,
@@ -103,5 +105,4 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-// Exporting the Model
 module.exports = mongoose.model("Order", orderSchema);
