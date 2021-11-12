@@ -1,6 +1,18 @@
+:root {
+  --ly: #ffde73;
+  --my: #ffda55;
+  --dy: #fe9900;
+
+  --d1: #1e2022;
+  --d2: #393e46;
+  --d3: #52616b;
+  --d4: #c9d6df;
+  --d5: #f0f5f9;
+}
+
 .banner {
   /* background-image: url("../../images/cover.jfif"); */
-  background-color: red;
+  background-color: #52616b;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,4 +72,80 @@
   padding: 1vmax;
   margin: 5vmax auto;
   color: rgb(0, 0, 0, 0.7);
+}
+
+.container {
+  display: flex;
+  margin: 2vmax auto;
+  width: 80vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.productCard {
+  width: 14vmax;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--d1);
+  margin: 2vmax;
+  transition: all 0.5s;
+  padding-bottom: 0.5vmax;
+}
+
+.productCard > img {
+  width: 14vmax;
+}
+
+.productCard > div {
+  margin: 0.5vmax;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.productCardSpan {
+  margin: 0.5vmax;
+  font: 300 0.7vmax "Roboto";
+}
+
+.productCard > p {
+  font-family: "Roboto";
+  font-size: 1.2vmax;
+  margin: 1vmax 0.5vmax;
+  margin-bottom: 0;
+}
+
+.productCard > span {
+  margin: 0.5vmax;
+  color: var(--d1);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1vmax;
+}
+
+.productCard:hover {
+  box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+
+  transform: translateY(-1vmax);
+}
+
+@media screen and (max-width: 600px) {
+  .productCard > p {
+    font-size: 1.7vmax;
+  }
+
+  .productCard > div {
+    margin: 0vmax;
+    display: block;
+  }
+
+  .productCard > span {
+    font-size: 1.5vmax;
+  }
+
+  .productCard > div > span {
+    margin: 0 0.5vmax;
+    font: 300 1vmax "Roboto";
+  }
 }
