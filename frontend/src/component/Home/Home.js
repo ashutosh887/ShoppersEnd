@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
-import { CgMouse } from "react-icons/all";
-
 import "./Home.css";
+import React, { Fragment, useEffect } from "react";
+import { CgMouse } from "react-icons/all";
+import { useSelector, useDispatch } from "react-redux";
+
 import Product from "./Product.js";
-import MetaData from "../layout/MetaData";
+import Metadata from "../layout/Metadata";
+import { getProduct } from "../../actions/productAction";
 
 const product = {
   name: "Blue Tshirt",
@@ -17,9 +19,15 @@ const product = {
 };
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
+
   return (
     <Fragment>
-      <MetaData title={"store887"} />
+      <Metadata title={"Store 887"} />
       <div className="banner">
         <p>Welcome to store 887</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>

@@ -1,14 +1,14 @@
 import "./App.css";
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Configurations
 import WebFont from "webfontloader";
 
 // Components
 import Header from "./component/layout/Header/Header";
-import Home from "./component/Home/Home";
 import Footer from "./component/layout/Footer/Footer";
+import Home from "./component/Home/Home";
 
 function App() {
   React.useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <Home />
+      <Route exact path="/" component={Home} />
       <Footer />
     </Router>
   );
