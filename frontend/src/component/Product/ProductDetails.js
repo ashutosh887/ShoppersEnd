@@ -76,7 +76,7 @@ const ProductDetails = ({ match }) => {
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button>-</button>
-                    <input readOnly type="number" value={1} />
+                    <input readOnly type="number" value={product.stock} />
                     <button>+</button>
                   </div>
                   <button>Add to Cart</button>

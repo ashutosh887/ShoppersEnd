@@ -1,4 +1,6 @@
-import React, { useEffect, Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { useAlert } from "react-alert";
+
 import "./Products.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -6,14 +8,11 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
+import Pagination from "react-js-pagination";
 import Metadata from "../layout/Metadata";
 
-import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
-
-import { useAlert } from "react-alert";
-
 const categories = [
   "Laptop",
   "Footwear",
@@ -32,7 +31,6 @@ const Products = ({ match }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
   const [category, setCategory] = useState("");
-
   const [ratings, setRatings] = useState(0);
 
   const {
@@ -53,6 +51,7 @@ const Products = ({ match }) => {
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
+
   let count = filteredProductsCount;
 
   useEffect(() => {
@@ -60,7 +59,6 @@ const Products = ({ match }) => {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
 
@@ -70,7 +68,7 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Products - Store 887" />
+          <Metadata title={`Products - Store 887`} />
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">

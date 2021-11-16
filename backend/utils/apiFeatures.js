@@ -4,7 +4,6 @@ class ApiFeatures {
     this.queryStr = queryStr;
   }
 
-  // Search Feature
   search() {
     const keyword = this.queryStr.keyword
       ? {
@@ -19,14 +18,14 @@ class ApiFeatures {
     return this;
   }
 
-  // Filter Feature
   filter() {
     const queryCopy = { ...this.queryStr };
-
-    // Redirecting some fields for category
+    //   Removing some fields for category
     const removeFields = ["keyword", "page", "limit"];
 
     removeFields.forEach((key) => delete queryCopy[key]);
+
+    // Filter For Price and Rating
 
     let queryStr = JSON.stringify(queryCopy);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key) => `$${key}`);

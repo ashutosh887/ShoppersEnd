@@ -9,7 +9,7 @@ import {
 } from "../constants/productConstants";
 
 // Products Getting Reducer
-export const productReducer = (state = { products: [] }, action) => {
+export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ALL_PRODUCT_REQUEST:
       return {
