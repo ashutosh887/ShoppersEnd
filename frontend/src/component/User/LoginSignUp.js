@@ -1,17 +1,13 @@
 import React, { Fragment, useRef, useState, useEffect } from "react";
+import "./LoginSignUp.css";
+import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
-import "./LoginSignup.css";
-
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
-
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-
-import Loader from "../layout/Loader/Loader";
-import Metadata from "../layout/Metadata";
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -105,7 +101,6 @@ const LoginSignUp = ({ history, location }) => {
 
   return (
     <Fragment>
-      <Metadata title={`Login / Sign Up`} />
       {loading ? (
         <Loader />
       ) : (
@@ -140,7 +135,7 @@ const LoginSignUp = ({ history, location }) => {
                     onChange={(e) => setLoginPassword(e.target.value)}
                   />
                 </div>
-                <Link to="/password/forgot">Forgot Password ?</Link>
+                <Link to="/password/forgot">Forget Password ?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
               </form>
               <form
