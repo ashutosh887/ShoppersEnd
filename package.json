@@ -37,6 +37,7 @@
     "nodemon": "^2.0.14",
     "react-material-ui-carousel": "^3.0.4",
     "react-rating-stars-component": "^2.2.0",
+    "stripe": "^8.191.0",
     "validator": "^13.7.0"
   }
 }

@@ -1,13 +1,16 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Configurations
 import WebFont from "webfontloader";
+import axios from "axios";
 import store from "./store";
 import { loadUser } from "./actions/userAction";
 import ProtectedRoute from "./component/Route/ProtectedRoute";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 // Components
 import Header from "./component/layout/Header/Header";
@@ -26,11 +29,23 @@ import ResetPassword from "./component/User/ResetPassword.js";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping.js";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Payment from "./component/Cart/Payment";
+import OrderSuccess from "./component/Cart/OrderSuccess";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  React.useEffect(() => {
+  // Payment
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+  }
+
+  // Font
+  useEffect(() => {
     WebFont.load({
       google: {
         families: ["Roboto", "Droid Sans", "Chilanka"],
@@ -38,6 +53,8 @@ function App() {
     });
 
     store.dispatch(loadUser());
+
+    getStripeApiKey();
   }, []);
 
   return (
@@ -68,6 +85,15 @@ function App() {
       <ProtectedRoute exact path="/shipping" component={Shipping} />
 
       <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+
+      {/* Payments */}
+      {stripeApiKey && (
+        <Elements stripe={loadStripe(stripeApiKey)}>
+          <ProtectedRoute exact path="/process/payment" component={Payment} />
+        </Elements>
+      )}
+
+      <ProtectedRoute exact path="/success" component={OrderSuccess} />
 
       <Footer />
     </Router>
