@@ -1,13 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./Products.css";
+
+import { useAlert } from "react-alert";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
-import Loader from "../layout/Loader/Loader";
-import ProductCard from "../Home/ProductCard";
-import Pagination from "react-js-pagination";
+
 import Slider from "@material-ui/core/Slider";
-import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
+
+import Loader from "../layout/Loader/Loader";
+import Pagination from "react-js-pagination";
+import ProductCard from "../Home/ProductCard";
 import Metadata from "../layout/Metadata";
 
 const categories = [
@@ -66,7 +69,7 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="PRODUCTS - Store 887" />
+          <Metadata title="PRODUCTS - Store887" />
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">

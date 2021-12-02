@@ -1,21 +1,19 @@
-import "./Home.css";
 import React, { Fragment, useEffect } from "react";
+import "./Home.css";
+
+import { useAlert } from "react-alert";
 import { CgMouse } from "react-icons/all";
 import { useSelector, useDispatch } from "react-redux";
 
 import ProductCard from "./ProductCard";
 import Metadata from "../layout/Metadata";
-import { getProduct, clearErrors } from "../../actions/productAction";
 
-import { useAlert } from "react-alert";
-
+import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 
 const Home = () => {
   const alert = useAlert();
-
   const dispatch = useDispatch();
-
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -32,9 +30,10 @@ const Home = () => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title={"Store 887"} />
+          <Metadata title="Store887" />
+
           <div className="banner">
-            <p>Welcome to store 887</p>
+            <p>Welcome to Ecommerce</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
             <a href="#container">
@@ -48,9 +47,9 @@ const Home = () => {
 
           <div className="container" id="container">
             {products &&
-              products.map((product) => {
-                return <ProductCard product={product} />;
-              })}
+              products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
           </div>
         </Fragment>
       )}

@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Configurations
@@ -31,6 +31,8 @@ import Shipping from "./component/Cart/Shipping.js";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
 import Payment from "./component/Cart/Payment";
 import OrderSuccess from "./component/Cart/OrderSuccess";
+import MyOrders from "./component/Order/MyOrders";
+import OrderDetails from "./component/Order/OrderDetails";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -84,8 +86,6 @@ function App() {
 
       <ProtectedRoute exact path="/shipping" component={Shipping} />
 
-      <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-
       {/* Payments */}
       {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
@@ -94,6 +94,13 @@ function App() {
       )}
 
       <ProtectedRoute exact path="/success" component={OrderSuccess} />
+
+      <ProtectedRoute exact path="/orders" component={MyOrders} />
+
+      <Switch>
+        <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+      </Switch>
 
       <Footer />
     </Router>
