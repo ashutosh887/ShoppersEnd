@@ -11,8 +11,7 @@
 }
 
 .banner {
-  /* background-image: url("../../images/cover.jfif"); */
-  background-color: #52616b;
+  background-image: url("../../images/coverImage.jfif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,7 +58,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 75%, 0 100%, 100% 100%);
   max-width: 100%;
 }
 

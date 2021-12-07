@@ -1,9 +1,9 @@
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
-const ErrorHandler = require("../utils/errorHandler");
+const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
-// Create a New Order
+// Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   const {
     shippingInfo,
@@ -33,7 +33,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get Single Order
+// get Single Order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id).populate(
     "user",
@@ -41,7 +41,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   );
 
   if (!order) {
-    return next(new ErrorHandler("Order not found with this ID", 404));
+    return next(new ErrorHandler("Order not found with this Id", 404));
   }
 
   res.status(200).json({
@@ -50,7 +50,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get Logged in User's Orders
+// get logged in user  Orders
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
   const orders = await Order.find({ user: req.user._id });
 
@@ -60,7 +60,7 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get All Orders -- Admin
+// get all Orders -- Admin
 exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
   const orders = await Order.find();
 
@@ -77,7 +77,7 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Update Order Status -- Admin
+// update Order Status -- Admin
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
@@ -91,11 +91,9 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
 
   if (req.body.status === "Shipped") {
     order.orderItems.forEach(async (o) => {
-      // updateStock Function : Is defined after this Update Order Block
       await updateStock(o.product, o.quantity);
     });
   }
-
   order.orderStatus = req.body.status;
 
   if (req.body.status === "Delivered") {
@@ -108,16 +106,15 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// updateStock Function : For Update Order Status
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
 
-  product.Stock -= quantity;
+  product.stock -= quantity;
 
   await product.save({ validateBeforeSave: false });
 }
 
-// Delete Order -- Admin
+// delete Order -- Admin
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
