@@ -14,13 +14,16 @@ import ProductCard from "../Home/ProductCard";
 import Metadata from "../layout/Metadata";
 
 const categories = [
-  "Laptop",
+  "Fashion-Men",
+  "Fashion-Women",
+  "Food Items",
   "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
-  "SmartPhones",
+  "Books",
+  "Sports",
+  "Gadgets",
+  "Others",
+  "Today's Deals",
+  "Used/Pre Owned",
 ];
 
 const Products = ({ match }) => {

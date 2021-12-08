@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
 
       <div className="midFooter">
-        <h1>store 887</h1>
+        <h1>store887</h1>
         <p>Your E Commerce shop for amazing products at affordable rates...</p>
 
         <p>Copyrights 2021 &copy; Ashutosh Jha</p>
