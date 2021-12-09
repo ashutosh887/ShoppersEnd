@@ -1,6 +1,6 @@
 {
-  "name": "store887 Frontend",
-  "version": "0.1.0",
+  "name": "frontend",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
