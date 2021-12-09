@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ashutosh887/e-commerce.git"
+    "url": "git+https://github.com/ashutosh887/store887.git"
   },
   "keywords": [
     "MERN"
@@ -19,9 +19,9 @@
   "author": "Ashutosh Jha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ashutosh887/e-commerce/issues"
+    "url": "https://github.com/ashutosh887/store887/issues"
   },
-  "homepage": "https://github.com/ashutosh887/e-commerce#readme",
+  "homepage": "https://github.com/ashutosh887/store887#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
