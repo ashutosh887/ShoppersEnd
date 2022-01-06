@@ -1,6 +1,10 @@
 {
   "name": "store887",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.9.1",
+    "npm": "8.3.0"
+  },
   "description": "Full CRUD E-Commerce Application",
   "main": "backend/server.js",
   "scripts": {
