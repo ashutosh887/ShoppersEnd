@@ -10,7 +10,7 @@ import { getAllOrders } from "../../actions/orderAction.js";
 import { getAdminProduct } from "../../actions/productAction";
 
 import Sidebar from "./Sidebar";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import { Typography } from "@material-ui/core";
 
 const Dashboard = () => {
@@ -68,7 +68,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <Metadata title="Dashboard - Admin Panel" />
+      <MetaData title="Dashboard - Admin Panel" />
       <Sidebar />
 
       <div className="dashboardContainer">

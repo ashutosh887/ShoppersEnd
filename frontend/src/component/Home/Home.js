@@ -6,7 +6,7 @@ import { CgMouse } from "react-icons/all";
 import { useSelector, useDispatch } from "react-redux";
 
 import ProductCard from "./ProductCard";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
@@ -30,7 +30,7 @@ const Home = () => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="store887 - Home" />
+          <MetaData title="store887 - Home" />
 
           <div className="banner">
             <p>Welcome to store887</p>

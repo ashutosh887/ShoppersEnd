@@ -9,7 +9,7 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 
 import Loader from "../layout/Loader/Loader";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const ResetPassword = ({ history, match }) => {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const ResetPassword = ({ history, match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Change Password" />
+          <MetaData title="Change Password" />
           <div className="resetPasswordContainer">
             <div className="resetPasswordBox">
               <h2 className="resetPasswordHeading">Update Profile</h2>

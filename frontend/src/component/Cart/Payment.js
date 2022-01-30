@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createOrder, clearErrors } from "../../actions/orderAction";
 
 import CheckoutSteps from "../Cart/CheckoutSteps";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import { Typography } from "@material-ui/core";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
@@ -119,7 +119,7 @@ const Payment = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title="Payment" />
+      <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>

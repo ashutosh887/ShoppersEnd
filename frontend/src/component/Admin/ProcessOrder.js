@@ -5,7 +5,7 @@ import "./processOrder.css";
 import Loader from "../layout/Loader/Loader";
 import SideBar from "./Sidebar";
 import { useAlert } from "react-alert";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import {
   getOrderDetails,
@@ -57,7 +57,7 @@ const ProcessOrder = ({ history, match }) => {
 
   return (
     <Fragment>
-      <Metadata title="Process Order" />
+      <MetaData title="Process Order" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">

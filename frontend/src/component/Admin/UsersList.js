@@ -4,7 +4,7 @@ import "./productList.css";
 
 import SideBar from "./Sidebar";
 import { useAlert } from "react-alert";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
@@ -122,7 +122,7 @@ const UsersList = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title={`ALL USERS - Admin`} />
+      <MetaData title={`ALL USERS - Admin`} />
 
       <div className="dashboard">
         <SideBar />

@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 
 import Loader from "../layout/Loader/Loader";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const UpdateProfile = ({ history }) => {
   const dispatch = useDispatch();
@@ -77,7 +77,7 @@ const UpdateProfile = ({ history }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Update Profile" />
+          <MetaData title="Update Profile" />
           <div className="updateProfileContainer">
             <div className="updateProfileBox">
               <h2 className="updateProfileHeading">Update Profile</h2>

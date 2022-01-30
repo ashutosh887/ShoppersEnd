@@ -22,7 +22,7 @@ import { Rating } from "@material-ui/lab";
 import Carousel from "react-material-ui-carousel";
 
 import ReviewCard from "./ReviewCard.js";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 
 const ProductDetails = ({ match }) => {
@@ -108,7 +108,7 @@ const ProductDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title={`${product.name} - Store 887`} />
+          <MetaData title={`${product.name} - Store 887`} />
           <div className="ProductDetails">
             <div>
               <Carousel>

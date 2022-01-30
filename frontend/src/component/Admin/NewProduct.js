@@ -13,7 +13,7 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import SideBar from "./Sidebar";
 
 const NewProduct = ({ history }) => {
@@ -95,7 +95,7 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title="Create Product" />
+      <MetaData title="Create Product" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">

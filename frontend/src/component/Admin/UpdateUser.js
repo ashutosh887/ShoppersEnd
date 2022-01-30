@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import { useAlert } from "react-alert";
 
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 
 import { Button } from "@material-ui/core";
@@ -76,7 +76,7 @@ const UpdateUser = ({ history, match }) => {
 
   return (
     <Fragment>
-      <Metadata title="Update User" />
+      <MetaData title="Update User" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">

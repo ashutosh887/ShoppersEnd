@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Loader from "../layout/Loader/Loader";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const Profile = ({ history }) => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
@@ -20,7 +20,7 @@ const Profile = ({ history }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title={`${user.name}'s Profile`} />
+          <MetaData title={`${user.name}'s Profile`} />
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>

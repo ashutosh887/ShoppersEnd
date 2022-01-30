@@ -13,7 +13,6 @@
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.21.1",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
     "chart.js": "^3.6.2",
@@ -63,5 +62,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.29.21:4000"
+  "proxy": "http://192.168.29.21:4000",
+  "devDependencies": {
+    "@testing-library/react": "^12.1.2"
+  }
 }

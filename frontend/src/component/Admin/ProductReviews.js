@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { useAlert } from "react-alert";
 
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import { Button } from "@material-ui/core";
 import Star from "@material-ui/icons/Star";
@@ -133,7 +133,7 @@ const ProductReviews = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title={`ALL REVIEWS - Admin`} />
+      <MetaData title={`ALL REVIEWS - Admin`} />
 
       <div className="dashboard">
         <SideBar />

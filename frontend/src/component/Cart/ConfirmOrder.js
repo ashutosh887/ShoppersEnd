@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector } from "react-redux";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
@@ -38,7 +38,7 @@ const ConfirmOrder = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title="Confirm Order" />
+      <MetaData title="Confirm Order" />
       <CheckoutSteps activeStep={1} />
       <div className="confirmOrderPage">
         <div>

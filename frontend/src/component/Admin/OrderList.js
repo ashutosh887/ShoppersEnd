@@ -4,7 +4,7 @@ import "./productList.css";
 
 import SideBar from "./Sidebar";
 import { useAlert } from "react-alert";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import {
   deleteOrder,
@@ -123,7 +123,7 @@ const OrderList = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title={`ALL ORDERS - Admin`} />
+      <MetaData title={`ALL ORDERS - Admin`} />
 
       <div className="dashboard">
         <SideBar />

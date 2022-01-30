@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import Loader from "../layout/Loader/Loader";
 import Pagination from "react-js-pagination";
 import ProductCard from "../Home/ProductCard";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const categories = [
   "Fashion-Men",
@@ -72,7 +72,7 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="PRODUCTS - store887" />
+          <MetaData title="PRODUCTS - store887" />
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">

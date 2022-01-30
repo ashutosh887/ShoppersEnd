@@ -5,7 +5,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, forgotPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const ForgotPassword = () => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Forgot Password" />
+          <MetaData title="Forgot Password" />
           <div className="forgotPasswordContainer">
             <div className="forgotPasswordBox">
               <h2 className="forgotPasswordHeading">Forgot Password</h2>

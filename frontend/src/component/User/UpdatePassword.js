@@ -7,7 +7,7 @@ import { clearErrors, updatePassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
 
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -57,7 +57,7 @@ const UpdatePassword = ({ history }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Change Password" />
+          <MetaData title="Change Password" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
               <h2 className="updatePasswordHeading">Update Profile</h2>

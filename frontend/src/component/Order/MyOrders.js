@@ -10,7 +10,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import LaunchIcon from "@material-ui/icons/Launch";
 import Typography from "@material-ui/core/Typography";
 
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 
 const MyOrders = () => {
@@ -90,7 +90,7 @@ const MyOrders = () => {
 
   return (
     <Fragment>
-      <Metadata title={`${user.name} - Orders`} />
+      <MetaData title={`${user.name} - Orders`} />
 
       {loading ? (
         <Loader />

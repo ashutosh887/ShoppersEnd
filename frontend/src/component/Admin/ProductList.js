@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 
 import SideBar from "./Sidebar";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
@@ -120,7 +120,7 @@ const ProductList = ({ history }) => {
 
   return (
     <Fragment>
-      <Metadata title={`ALL PRODUCTS - Admin`} />
+      <MetaData title={`ALL PRODUCTS - Admin`} />
 
       <div className="dashboard">
         <SideBar />

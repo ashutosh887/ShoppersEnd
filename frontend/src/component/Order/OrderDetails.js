@@ -9,7 +9,7 @@ import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import { Typography } from "@material-ui/core";
 
 import Loader from "../layout/Loader/Loader";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
@@ -31,7 +31,7 @@ const OrderDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <Metadata title="Order Details" />
+          <MetaData title="Order Details" />
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
               <Typography component="h1">

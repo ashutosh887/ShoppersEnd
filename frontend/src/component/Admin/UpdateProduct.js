@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 
 import { useAlert } from "react-alert";
-import Metadata from "../layout/Metadata";
+import MetaData from "../layout/MetaData";
 import SideBar from "./Sidebar";
 
 import { Button } from "@material-ui/core";
@@ -129,7 +129,7 @@ const UpdateProduct = ({ history, match }) => {
 
   return (
     <Fragment>
-      <Metadata title="Create Product" />
+      <MetaData title="Create Product" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
