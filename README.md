@@ -1,6 +1,6 @@
 
 # ShoppersEnd
-Full Stack e-commerce Web Application (v2)
+Full Stack e-commerce Web Application (v1)
 
 ## Tech Stacks:
 
